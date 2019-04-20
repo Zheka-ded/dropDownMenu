@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+/* замедление смещения всего контейнера??? */
+body{
+    transition: all ease 1s;
+}
+
+/* стиль кнопки */
+.hamburger{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 96px;
+    height: 96px;
+    font-size: 0;
+    box-shadow: none;
+    cursor: pointer;
+    border: none;
+}
+
+/* обводка при нажатии TAB */
+.hamburger:focus {
+    outline: none;
+}
+
+/* средняя полоска гамбургера */
+.hamburger span{
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: #fff;
+}
+
+/* верхняя и нижняя полоска гамбуршгера */
+.hamburger span::before, .hamburger span::after{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #fff;
+    content: "";
+}
+
+/* положение верхней полоски */
+.hamburger span::before{
+    top: -20px;
+}
+
+/* положение нижней полоски */
+.hamburger span::after{
+    bottom: -20px;
+}
+
+/* цвет фона кнопки меню */
+.hamburger__line{
+    background: #cb0032;
+}
+
+/* замедление фона??? */
+.hamburger__line span{
+    transition: background 0s 0.3s;
+}
+
+/* замедление вмсей анимации */
+.hamburger__line span::before, .hamburger__line span::after{
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+/* отслеживание??? */
+.hamburger__line span::before{
+    transition-property: top, transform;
+}
+
+/* отслеживание??? */
+.hamburger__line span::after{
+    transition-property: bottom, transform;
+}
+
+/* фон меню при нажатии */
+.hamburger__line.is__active{
+    background: aqua;
+}
+
+.hamburger__line.is__active span{
+    background: none;
+}
+
+/* поворот полоски */
+.hamburger__line.is__active span::before{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* поворот полоски */
+.hamburger__line.is__active span::after{
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+/* замедление полосок */
+.hamburger__line.is__active span::before, .hamburger__line.is__active span::after{
+    transition-delay: 0s, 0.3s;
+}
+
+/* позиционирование кнопки */
+#menu{
+    width: 300px;
+    margin-left: -204px;
+    background: #fbf0ff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: all ease 1s;
+    z-index: 9999;
+}
+
+#menu.nav__active{
+    margin-left: 0;
+}
+
+/* стили контейнера */
+.container{
+    width: 80%;
+    min-width: 1000px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* смещение основного контейнера, это можно убрать */
+.body__active{
+    margin-left: 300px;
+}
